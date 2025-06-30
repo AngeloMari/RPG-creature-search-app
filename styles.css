@@ -1,0 +1,399 @@
+:root {
+  --blu: #144682; /* blue for title/button */
+  --grn1: #155332; /* green 1 - container bg */
+  --grn2: #06362ddd; /* green 2 - gradient overlay */
+  --gld: #d1a505; /* gold font */
+  --tbl: #dee2b1; /* table cell/border color */
+  --glw: #f2f5d4; /* glow color */
+
+  /* Creature types color */
+  --fire: #ff6f53;
+  --water: #42a1ff;
+  --rock: #baaa66;
+  --electric: #fecc33;
+  --dragon: #9e93f1;
+  --grass: #78cc55;
+  --poison: #c68bb7;
+  --ice: #66ccfe;
+  --fairy: #ed99ed;
+  --ground: #dfba52;
+  --flying: #8899ff;
+  --bug: #aabb23;
+  --dark: #b59682;
+  --psychic: #ff66a3;
+  --steel: #ababbb;
+  --ghost: #9995d0;
+}
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  font-family: "Crimson Pro", serif;
+  font-size: 1rem;
+  text-align: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(var(--grn2), var(--grn2), transparent);
+  background-repeat: no-repeat;
+}
+
+/* Background image */
+#bg {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("images/background.jpeg");
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* App title */
+#title {
+  padding: 5px 8px;
+  font-family: "Almendra", serif;
+  font-size: 1.6rem;
+  font-weight: 1700;
+  color: var(--blu);
+  animation: title-glow 6s ease-in-out infinite;
+}
+@keyframes title-glow {
+  0% {
+    text-shadow: 0 0 2px var(--glw), 0 0 4px var(--tbl);
+  }
+  33% {
+    text-shadow: 0 0 6px var(--glw), 0 0 10px var(--tbl);
+  }
+  66% {
+    text-shadow: 0 0 8px var(--glw), 0 0 12px var(--tbl);
+  }
+  100% {
+    text-shadow: 0 0 2px var(--glw), 0 0 4px var(--tbl);
+  }
+}
+
+/* Container */
+#container {
+  height: auto;
+  width: 90%;
+  max-width: 400px;
+  max-height: 525px;
+  margin: 20px;
+  padding: 15px;
+  background-color: var(--grn2);
+  box-shadow: 0 0 4px var(--glw), 0 0 8px var(--tbl);
+}
+#container:hover {
+  animation: container-glow 6s ease-in-out infinite;
+}
+@keyframes container-glow {
+  0% {
+    box-shadow: 0 0 4px var(--glw), 0 0 6px var(--tbl);
+  }
+  33% {
+    box-shadow: 0 0 12px var(--glw), 0 0 15px var(--tbl);
+  }
+  66% {
+    box-shadow: 0 0 12px var(--glw), 0 0 15px var(--tbl);
+  }
+  100% {
+    box-shadow: 0 0 4px var(--glw), 0 0 6px var(--tbl);
+  }
+}
+
+/* Instructions */
+#instructions,
+#search-input {
+  color: var(--gld);
+  text-shadow: 0 0 2px var(--grn1), 0 0 3px var(--grn2);
+}
+#instructions {
+  font-size: 1.1rem;
+}
+
+/* User input */
+#search-input,
+#search-button {
+  margin-top: 12px;
+}
+#search-input {
+  width: 60%;
+  padding: 3px 5px;
+  border: 0;
+  border-bottom: 2px solid var(--tbl);
+  background-color: transparent;
+  font-weight: bold;
+}
+#search-input:focus {
+  outline: none;
+  caret-color: var(--tbl);
+}
+
+/* Search button */
+#search-button {
+  margin-left: 10px;
+  padding: 3px 8px;
+  border: 2px solid var(--tbl);
+  background-color: var(--blu);
+  font-weight: bold;
+  color: var(--tbl);
+}
+#search-button:hover {
+  color: var(--glw);
+  cursor: pointer;
+}
+#search-button:active {
+  box-shadow: 0 0 8px var(--glw), 0 0 12px var(--tbl);
+}
+
+/* Creature description */
+#creature-container {
+  min-height: 25vh;
+  width: 100%;
+  margin: 15px auto;
+  margin-top: 20px;
+  padding: 0 5px;
+}
+#creature-container *:not(.type) {
+  text-align: left;
+  color: var(--gld);
+}
+#creature-name,
+#creature-id {
+  font-size: 1.4rem;
+  margin-right: 5px;
+}
+#creature-id {
+  font-weight: 200;
+}
+#moves {
+  font-size: 1.1rem;
+}
+
+/* Creature types added from JS */
+.type {
+  display: inline-block;
+  padding: 3px 5px;
+  margin: 5px 5px 10px 0;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-shadow: 0 0 1px #2d2d2d;
+  letter-spacing: 1px;
+}
+.fire {
+  background-color: var(--fire);
+}
+.water {
+  background-color: var(--water);
+}
+.rock {
+  background-color: var(--rock);
+}
+.electric {
+  background-color: var(--electric);
+}
+.dragon {
+  background-color: var(--dragon);
+}
+.grass {
+  background-color: var(--grass);
+}
+.poison {
+  background-color: var(--poison);
+}
+.ice {
+  background-color: var(--ice);
+}
+.fairy {
+  background-color: var(--fairy);
+}
+.ground {
+  background-color: var(--ground);
+}
+.flying {
+  background-color: var(--flying);
+}
+.bug {
+  background-color: var(--bug);
+}
+.dark {
+  background-color: var(--dark);
+}
+.psychic {
+  background-color: var(--psychic);
+}
+.steel {
+  background-color: var(--steel);
+}
+.ghost {
+  background-color: var(--ghost);
+}
+
+/* I was supposed to add this in JS but due to the project requirements, I need to add it here instead */
+.fire::after {
+  content: "🔥";
+}
+.water::after {
+  content: "💧";
+}
+.rock::after {
+  content: "🪨";
+}
+.electric::after {
+  content: "⚡";
+}
+.dragon::after {
+  content: "🐉";
+}
+.grass::after {
+  content: "🌿";
+}
+.poison::after {
+  content: "☠️";
+}
+.ice::after {
+  content: "❄️";
+}
+.fairy::after {
+  content: "✨";
+}
+.ground::after {
+  content: "🌍";
+}
+.flying::after {
+  content: "🕊️";
+}
+.bug::after {
+  content: "🐛";
+}
+.dark::after {
+  content: "🌑";
+}
+.psychic::after {
+  content: "🔮";
+}
+.steel::after {
+  content: "⚙️";
+}
+.ghost::after {
+  content: "👻";
+}
+
+/* Stats table */
+#table-container {
+  width: 100%;
+}
+#stats {
+  width: 100%;
+  border-spacing: 5px;
+}
+.cells {
+  padding: 3px 0;
+  background-color: var(--tbl);
+  color: var(--grn1);
+}
+
+/* Responsiveness */
+@media (min-width: 480px) {
+  #title {
+    font-size: 2rem;
+  }
+  #instructions,
+  #search-input {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 768px) {
+  #title {
+    font-size: 2.5rem;
+  }
+  #instructions,
+  #search-input {
+    font-size: 1.4rem;
+  }
+  #search-button {
+    font-size: 1.2rem;
+  }
+  #characteristics,
+  #characteristics *,
+  .type,
+  #move-description,
+  .cells {
+    font-size: 1.1rem;
+  }
+  #creature-name,
+  #creature-id {
+    font-size: 1.5rem;
+  }
+  #moves {
+    font-size: 1.3rem;
+  }
+  @keyframes container-glow {
+    0% {
+      box-shadow: 0 0 6px var(--glw), 0 0 8px var(--tbl);
+    }
+    33% {
+      box-shadow: 0 0 14px var(--glw), 0 0 18px var(--tbl);
+    }
+    66% {
+      box-shadow: 0 0 14px var(--glw), 0 0 18px var(--tbl);
+    }
+    100% {
+      box-shadow: 0 0 6px var(--glw), 0 0 8px var(--tbl);
+    }
+  }
+  @keyframes title-glow {
+    0% {
+      text-shadow: 0 0 2px var(--glw), 0 0 4px var(--tbl);
+    }
+    33% {
+      text-shadow: 0 0 8px var(--glw), 0 0 12px var(--tbl);
+    }
+    66% {
+      text-shadow: 0 0 10px var(--glw), 0 0 14px var(--tbl);
+    }
+    100% {
+      text-shadow: 0 0 2px var(--glw), 0 0 4px var(--tbl);
+    }
+  }
+}
+@media (min-width: 1024px) {
+  #title {
+    font-size: 3rem;
+  }
+  #instructions,
+  #search-input {
+    font-size: 1.5rem;
+  }
+  #search-button {
+    font-size: 1.3rem;
+  }
+  #creature-container {
+    margin-bottom: 10px;
+  }
+  #characteristics,
+  #characteristics *,
+  #move-description,
+  .cells {
+    font-size: 1.2rem;
+  }
+  #creature-name,
+  #creature-id {
+    font-size: 1.6rem;
+  }
+  #moves {
+    font-size: 1.4rem;
+  }
+}

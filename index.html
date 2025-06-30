@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>RPG Creature Search App</title>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <h1 id="title">RPG Creature Search App</h1>
+    <div id="container">
+      <div id="user-input">
+        <form role="search" id="search-form">
+          <label for="search-input" id="instructions"
+            >Search for Creature Name or ID:</label
+          >
+          <input
+            type="text"
+            name="creature"
+            id="search-input"
+            required
+            autofocus
+          />
+          <button id="search-button">Search</button>
+        </form>
+      </div>
+      <div id="creature-container">
+        <div id="creature-description" hidden>
+          <h2>
+            <span id="creature-name">PYROLYNX</span
+            ><span id="creature-id">#1</span>
+          </h2>
+          <p id="characteristics">
+            Weight:
+            <span id="weight">12</span>
+            | Height:
+            <span id="height">34</span>
+          </p>
+          <div id="types">Water</div>
+          <h3 id="moves">Blazing Reflex</h3>
+          <p id="move-description">
+            Increases speed when hit by a Fire-type move.
+          </p>
+        </div>
+      </div>
+      <div id="table-container">
+        <table id="stats">
+          <tbody>
+            <tr>
+              <th class="cells">Base</th>
+              <th class="cells">Stats</th>
+            </tr>
+            <tr>
+              <td class="cells">HP:</td>
+              <td class="cells" id="hp"></td>
+            </tr>
+            <tr>
+              <td class="cells">Attack:</td>
+              <td class="cells" id="attack"></td>
+            </tr>
+            <tr>
+              <td class="cells">Defense:</td>
+              <td class="cells" id="defense"></td>
+            </tr>
+            <tr>
+              <td class="cells">Sp. Attack:</td>
+              <td class="cells" id="special-attack"></td>
+            </tr>
+            <tr>
+              <td class="cells">Sp. Defense:</td>
+              <td class="cells" id="special-defense"></td>
+            </tr>
+            <tr>
+              <td class="cells">Speed:</td>
+              <td class="cells" id="speed"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
