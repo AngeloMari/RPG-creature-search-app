@@ -87,7 +87,6 @@ body {
   height: auto;
   width: 90%;
   max-width: 400px;
-  max-height: 525px;
   margin: 20px;
   padding: 15px;
   background-color: var(--grn2);
@@ -395,5 +394,11 @@ body {
   }
   #moves {
     font-size: 1.4rem;
+  }
+}
+
+@media (min-height: 650px) {
+  #creature-container {
+    min-height: auto;
   }
 }
